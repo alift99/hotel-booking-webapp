@@ -1,12 +1,12 @@
 import './App.css';
 import DestinationForm from './components/DestinationForm.jsx';
-import BookingPage from './components/BookingPage/BookingPage.jsx';
+import HotelRoomDetails from './components/HotelRoomDetails/HotelRoomDetails.jsx';
 
 function App() {
   return (
     <div className="App">
       {/* <DestinationForm></DestinationForm> */}
-      <BookingPage></BookingPage>
+      <HotelRoomDetails></HotelRoomDetails>
     </div>
   );
 }
