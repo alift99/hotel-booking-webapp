@@ -62,7 +62,7 @@ SUBMIT_PATH = '//*[@id="selbtn"]'
 PREV_PAGE_PATH= '//*[@id="root"]/section/main/div/div/div[1]/div[2]/div/div[3]/div'
 PREV_PAGE = driver.find_element(By.XPATH, PREV_PAGE_PATH)
 
-//*[@id="root"]/section/main/div/div/div[2]/div/div/nav/ul
+# //*[@id="root"]/section/main/div/div/div[2]/div/div/nav/ul
 for x in range(10):  
     hotel_choice = random.randint(0,9)
     z = random.randint(0,1)
