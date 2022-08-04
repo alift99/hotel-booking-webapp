@@ -82,7 +82,7 @@ NUMBER_OF_PAGE = math.ceil(HOTEL_NUMBER_SLICE/10)
 lastpage = False
 
 for x in range(10):  
-    hotel_choice = random.randint(0,9)
+    
     z = random.randint(0,1)
     HOTEL_NUMBER_PATH = '//*[@id="root"]/section/main/div/div/div[2]/div/div/p/b'
     HOTEL_NUMBER = driver.find_element(By.XPATH, HOTEL_NUMBER_PATH).get_attribute('textContent')
@@ -101,9 +101,9 @@ for x in range(10):
         time.sleep(5)
         try:
             assert driver.find_elements(By.XPATH, PAGINATION_PATH)
-            print('Pagination Passed')
+            print(f'Pagination {i} Passed')
         except AssertionError:
-            print('Pagination Failed')
+            print(f'Pagination {i} Failed')
        
     
     # For Hotel Select
@@ -114,14 +114,15 @@ for x in range(10):
             lastpage = False
 
         if (lastpage == False):
+            hotel_choice = random.randint(0,9)
             SUBMIT_BUTTON = driver.find_elements(By.XPATH, SUBMIT_PATH)
             SUBMIT_BUTTON[hotel_choice].click()
             time.sleep(3)
             try:
                 assert driver.find_element(By.XPATH, HOTEL_DETAILS_PATH)
-                print('Select Hotel Passed')
+                print(f'Select Hotel {hotel_choice} Passed')
             except AssertionError:
-                print('Select Hotel Failed')
+                print(f'Select Hotel {hotel_choice} Failed')
             PREV_PAGE.click()
             time.sleep(5)
             try:
@@ -131,15 +132,15 @@ for x in range(10):
                 print('Back Page Failed')
             
         else:
-            hotel_choice = random.randint(0,LASTPAGE_NUMBER-1)
+            hotel_choice_2 = random.randint(0,LASTPAGE_NUMBER-1)
             SUBMIT_BUTTON = driver.find_element(By.XPATH, SUBMIT_PATH)
-            SUBMIT_BUTTON[hotel_choice].click()
+            SUBMIT_BUTTON[hotel_choice_2].click()
             time.sleep(3)
             try:
                 assert driver.find_elements(By.XPATH, HOTEL_DETAILS_PATH)
-                print('Select Hotel Passed')
+                print(f'Select Hotel {hotel_choice_2} Passed')
             except AssertionError:
-                print('Select Hotel Failed')
+                print(f'Select Hotel {hotel_choice_2} Failed')
             PREV_PAGE.click()
             time.sleep(5)
             try:
